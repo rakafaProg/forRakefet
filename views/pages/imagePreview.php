@@ -4,7 +4,9 @@
 
         public function output($fileds,$i){
             var_dump( $fileds);
-            echo '<input  type="file" name="image" style="text-align: center" onchange="readURL(this);" '.$fileds[$i].'" id="'.$fileds[$i].'" required>';
+            //echo '<input  type="file" name="image" style="text-align: center" onchange="readURL(this);" '.$fileds[$i].'" id="'.$fileds[$i].'" required>';
+            // rakefet -  deleted unnessery part
+            echo '<input  type="file" name="image" style="text-align: center" onchange="readURL(this);" id="'.$fileds[$i].'" required>';
             // image preview
             echo '<script>
                     function readURL(input) {
@@ -23,4 +25,3 @@
         }
     }
 ?>
-

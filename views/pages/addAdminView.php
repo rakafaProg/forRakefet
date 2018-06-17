@@ -8,7 +8,9 @@
 ?>
             <div id="id01" class="modal">
                 <!-- <form name="upload" method="POST" action="adminContainerView.php" enctype="multipart/form-data">  -->
-                <form method="POST" class="modal-content animate" action="">
+
+                <!-- rakefet -  Should be a Div and not a FORM!!! You can't have a form inside form -->
+                <div  class="modal-content animate" >
 <!-- maybe need this enctype<form method="POST" class="modal-content animate" action="" enctype= "multipart/form-data"> -->
                         <div class="imgcontainer">
                         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -19,10 +21,10 @@
                         </div>
 
                         <div class="container">
-                        
-                        <form action="adminContainerView.php" method="POST" enctype="multipart/form-data"> 
+                        <!-- rakefet -  action should send to the same page. not admin container view. -->
+                        <form action="" method="POST" enctype="multipart/form-data">
                         <!-- <form name="upload" method="POST" action="adminContainerView.php" enctype="multipart/form-data">  -->
-<?php 
+<?php
                                         $fileds = array('id', 'name', 'role','phone', 'email','password', 'image');
                                         for($i=0; $i < count($fileds); $i++) {
                                                 echo '<div style="text-align: center" class="form-group">';
@@ -38,7 +40,7 @@
                                                                 $imagePreview = new ImagePreview();
                                                                 $imagePreview ->output($fileds,$i);
                                                         }
-                                                        if ( !in_array(($fileds[$i]), array('id','image', 'password'), true ) ) {                                
+                                                        if ( !in_array(($fileds[$i]), array('id','image', 'password'), true ) ) {
                                                             echo '<input name="'.$fileds[$i].'" id="'.$fileds[$i].'" placeholder="'.$fileds[$i].'" required>';
                                                         }
                                                         echo '</div>';
@@ -51,16 +53,16 @@
                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>
-                        
+
                                         <div class="container" style="background-color:#f1f1f1">
                                         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                                        
+
                                         </div>
                         </form>
                         </div>
 
                 <div id="id02" class="modal">
-                
+
                 <form method="POST" class="modal-content animate" action="">
                         <div class="imgcontainer">
                         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -70,27 +72,27 @@
                                 <h4>Add Course</h4>
                         </div>
                         <div class="container">
-                        
-                        <form action="" method="POST">  
-<?php 
+
+                        <form action="" method="POST">
+<?php
                                         $fileds = array('courseId', 'name', 'description', 'image');
                                         for($i=0; $i < count($fileds); $i++) {
                                             echo '<div class="form-group">';
                                             echo '<label for="'.$fileds[$i].'">'.$fileds[$i].'</label>';
                                             if ($fileds[$i] == 'courseId')
                                                     echo '<input type=number name="'.$fileds[$i].'" id="'.$fileds[$i].'" placeholder="'.$fileds[$i].'" required>';
-                                            else 
+                                            else
                                                     echo '<input name="'.$fileds[$i].'" id="'.$fileds[$i].'" placeholder="'.$fileds[$i].'" required>';
                                             echo '</div>';
                                         }
 ?>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                
+
                         </div>
-                        
+
                         <div class="container" style="background-color:#f1f1f1">
                         <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-                        
+
                         </div>
                 </form>
                 </div>
@@ -108,7 +110,7 @@
                         }
                             else{
                                 if (event.target == modal2) {
-                                    modal2.style.display = "none";       
+                                    modal2.style.display = "none";
                                 }
                             }
                     }
@@ -117,5 +119,3 @@
         }
 }
 ?>
-
-        
